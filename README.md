@@ -10,12 +10,12 @@ A very small Rust command-line program that picks a secret number and asks the u
 
 Key parts and what I learnt:
 
-- `use std::io;` — brings input/output tools into scope so we can read what the user types.
-- `use rand::Rng;` — imports the trait that lets us call `gen_range` to generate random numbers.
-- `rand::thread_rng().gen_range(1..=100)` — creates a random number generator local to the current thread and generates an integer between 1 and 100 (inclusive).
-- `String::new()` / `io::stdin().read_line(&mut guess)` — build a new string and read a line from the terminal into it.
-- `guess.trim().parse()` — trims whitespace and tries to parse the string into a number; we handle parse errors with a `match` and `continue` to ask again.
-- `cmp(&secret_number)` and `std::cmp::Ordering` — compares the guessed number and the secret number and tells the user `Too small!`, `Too big!`, or `You win!`.
+- `use std::io;`:brings input/output tools into scope so we can read what the user types.
+- `use rand::Rng;`:imports the trait that lets us call `gen_range` to generate random numbers.
+- `rand::thread_rng().gen_range(1..=100)`: creates a random number generator local to the current thread and generates an integer between 1 and 100 (inclusive).
+- `String::new()` / `io::stdin().read_line(&mut guess)`:build a new string and read a line from the terminal into it.
+- `guess.trim().parse()`:trims whitespace and tries to parse the string into a number; we handle parse errors with a `match` and `continue` to ask again.
+- `cmp(&secret_number)` and `std::cmp::Ordering`:compares the guessed number and the secret number and tells the user `Too small!`, `Too big!`, or `You win!`.
 
 Why `rand` is needed:
 
